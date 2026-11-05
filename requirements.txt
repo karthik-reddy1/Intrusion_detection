@@ -1,0 +1,22 @@
+# Core dependencies
+opencv-python>=4.8.0
+numpy>=1.24.0
+ultralytics>=8.0.0
+PyYAML>=6.0
+shapely>=2.0.0
+requests>=2.31.0
+twilio>=8.0.0
+python-dotenv>=1.0.1
+
+# Optional dependencies for enhanced features
+# For email notifications (uncomment if needed)
+# smtplib (built-in)
+# email (built-in)
+
+# For SMS notifications
+# twilio included above
+
+# For advanced tracking (optional)
+# filterpy>=1.4.5
+# scipy>=1.10.0
+

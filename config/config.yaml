@@ -1,0 +1,73 @@
+# Configuration for Loitering & Restricted Area Intrusion Detection System
+
+# Detection thresholds
+thresholds:
+  enable_loitering_detection: false  # false: only intrusion detection
+  loitering_duration_seconds: 120  # Flag as loitering if person stays > 120 seconds
+  min_movement_meters: 5  # Minimum movement to avoid loitering flag
+  intrusion_alert_immediate: true  # Immediate alert on restricted zone entry
+
+# Pose detection settings
+pose_detection:
+  loitering_on_model: "yolov8n-pose.pt"  # Used when enable_loitering_detection is true
+  loitering_off_model: "yolov8n.pt"  # Used when enable_loitering_detection is false
+  confidence_threshold: 0.5
+  device: "cpu"  # Options: cpu, cuda, mps
+
+# Tracking settings
+tracking:
+  method: "bytetrack"  # Options: bytetrack, deepsort
+  max_age: 30  # Frames to keep lost tracks
+  min_hits: 3  # Minimum detections to start tracking
+
+# Restricted zones (defined as polygons with [x, y] coordinates)
+restricted_zones:
+  - name: "Area 1"
+    polygon: [[502, 289], [632, 327], [613, 454], [463, 384]]
+    threat_level: "high"
+  # - name: "Area 2"
+  #   polygon: [[271, 88], [332, 51], [406, 76], [393, 137]]
+  #   threat_level: "medium"
+
+# Notification settings
+notifications:
+  enable_email: true
+  enable_sms: true
+  enable_whatsapp: true
+  alert_cooldown_frames: 30  # Suppress repeat alert for same person/zone for 30 frames
+  enable_console: true
+  enable_visual_alerts: true
+  email_recipients: ["ashish07243@gmail.com", "karthikwali2@gmail.com"]
+  email_recipients: ["ashish07243@gmail.com", "karthikwali2@gmail.com", "sudhakaryadav.mtech@gmail.com"]
+  sms_recipients: ["+917795995654", "+917386738659"]
+  sms_recipients: ["+917795995654", "+917386738659", "+917396385708"]
+  whatsapp_recipients: ["+917795995654", "+917386738659"]
+  whatsapp_recipients: ["+917795995654", "+917386738659", "+917396385708"]
+
+# Environment variables required for notifications:
+# Email (SMTP): SMTP_HOST, SMTP_PORT, SMTP_USERNAME, SMTP_PASSWORD, SMTP_FROM
+# Optional (SMTP): SMTP_STARTTLS=true
+# SMS (Twilio): TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_SMS_FROM
+# WhatsApp (Twilio): TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_WHATSAPP_FROM
+# Optional (WhatsApp image): IMGBB_API_KEY
+
+# Visualization settings
+visualization:
+  enable_display: true  # false: run headless (no visual windows/output frames)
+  show_pose_keypoints: false
+  show_trajectory: true
+  trajectory_length: 30  # Number of points to show in trajectory
+  colors:
+    normal: [0, 255, 0]  # Green
+    loitering: [0, 165, 255]  # Orange
+    intrusion: [0, 0, 255]  # Red
+    restricted_zone: [255, 0, 255]  # Magenta
+
+# Video settings
+video:
+  input_source: None  # 0 for webcam, or path to video file
+  output_path: "output/output_video.mp4"
+  fps: 15
+  frame_width: 640
+  frame_height: 480
+

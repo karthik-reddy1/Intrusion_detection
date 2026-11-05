@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Model files (large)
+*.pt
+*.pth
+*.onnx
+*.weights
+
+# Output files
+output/
+*.mp4
+*.avi
+*.jpg
+*.png
+temp_alert_*.jpg
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config overrides (optional)
+config/local_config.yaml
+

@@ -1,0 +1,6 @@
+# Polygon coordinates from video: input.mp4
+# Video dimensions: 640x480
+# Number of vertices: 4
+# Nested list format: [[x1, y1], [x2, y2], ...]
+
+[[502, 289], [632, 327], [613, 454], [463, 384]]
